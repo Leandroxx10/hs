@@ -11,6 +11,7 @@ Ambiente de verificação: Linux x86-64, Node.js 24.19.0, Chromium headless, Has
 - Benchmark real `hashcat -b -m 22000`: **23.104 H/s** neste ambiente de CPU. Esse número não representa a GPU do usuário nem a segurança de sua rede. A medição não é distribuída como se tivesse sido feita no PC do usuário.
 - Checkpoint real: uma busca numérica foi executada até informar progresso, interrompida, restaurada pelo Hashcat e executada novamente. Ambas as execuções informaram processamento real; a retomada usou o arquivo `.restore` da sessão.
 - Instalação reproduzida com `ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm ci`, seguida de build e nove testes aprovados.
+- O log enviado pelo usuário confirmou `npm ci` e a compilação Vite no Windows. O instalador CMD anterior parou porque verificava `electron.exe` antes de chamar o instalador do runtime. A versão corrigida chama explicitamente `node node_modules/electron/install.js` e reutiliza a interface já compilada. A etapa oficial foi executada neste ambiente com destino Windows x64: download e checksum aprovados, executável PE x64 versão 45.2.1 e `path.txt` correto. Uma segunda execução reutilizou o runtime sem modificar o executável. Isso não equivale a executar a interface nativamente no Windows.
 
 ## Limites
 

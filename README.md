@@ -10,7 +10,9 @@ As estimativas funcionam imediatamente. Para benchmark e recuperação, extraia 
 
 ### Instalar pelo CMD
 
-O arquivo `INSTALAR-WINDOWS.cmd` baixa o Node.js 24.19.0 portátil e o código da revisão `0ff9a8abbf490962837b8f5a3abba43fa09b3404`, verifica os checksums SHA-256, instala as dependências do lockfile e compila a interface. Tudo fica em `%LOCALAPPDATA%\HSStudio`. Não exige Node.js global, Git ou privilégios de administrador. O Electron é baixado pelo instalador oficial do pacote npm. É necessário acesso à Internet e espaço para os downloads e a instalação.
+O arquivo `INSTALAR-WINDOWS.cmd` baixa o Node.js 24.19.0 portátil e o código da revisão `0ff9a8abbf490962837b8f5a3abba43fa09b3404`, verifica os checksums SHA-256, instala as dependências do lockfile e compila a interface. Em seguida, chama explicitamente `node node_modules/electron/install.js`, o instalador oficial do runtime Electron. A versão utilizada não baixa o executável durante `npm ci`. Tudo fica em `%LOCALAPPDATA%\HSStudio`. Não exige Node.js global, Git ou privilégios de administrador. É necessário acesso à Internet e espaço para os downloads e a instalação.
+
+Se a interface já foi compilada e faltou apenas `electron.exe`, executar o instalador atualizado preserva os downloads e a compilação e continua na etapa do runtime. Uma falha informa a etapa correspondente. A verificação de checksum do Electron permanece habilitada.
 
 Depois, use `%LOCALAPPDATA%\HSStudio\ABRIR-HS-STUDIO.cmd` para abrir novamente. O download do código publicado e o checksum oficial do Node foram verificados neste ambiente; a execução deste instalador no Windows ainda precisa ser validada no notebook.
 
