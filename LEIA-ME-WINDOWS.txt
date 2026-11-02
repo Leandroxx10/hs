@@ -1,0 +1,50 @@
+HS STUDIO 1.0.0 — WINDOWS 10/11 x64
+
+1. Extraia TODO o ZIP em uma pasta. Abra "HS Studio.exe" nessa pasta.
+   Não execute o aplicativo dentro do ZIP nem mova somente o EXE.
+   Não é necessário instalar Node.js ou Linux.
+
+   Em "Redes Wi-Fi", clique em "Listar redes visíveis" para consultar
+   as redes detectadas pelo adaptador do próprio notebook. Os resultados
+   são reais e vêm do Windows. Essa lista não fornece senhas ou hashes.
+
+2. A tela Visão geral já calcula estimativas sem instalar o Hashcat.
+   Escolha o comprimento, letras, números e símbolos. O valor inicial de
+   1.000.000 tentativas/s é uma HIPÓTESE editável, não uma medição.
+
+3. Para medir seu PC, baixe a distribuição oficial em:
+   https://hashcat.net/hashcat/
+   Extraia o pacote completo. Instale o driver da sua GPU pelo fabricante.
+   Em Configurações, selecione hashcat.exe. Use "Verificar dispositivos"
+   e depois "Executar benchmark". Ao concluir, escolha "Meu benchmark"
+   na Visão geral para usar a velocidade medida.
+
+4. "Teste de senhas" usa arquivos WPA/WPA2 no formato .22000/.hc22000.
+   Oferece combinações por comprimento, máscaras e dicionários com regras.
+   Essa verificação exige os dados de autenticação da sua própria rede
+   ou de uma rede que você tenha autorização para auditar.
+   Benchmark e estimativas NÃO exigem esse arquivo.
+
+5. Veja logs e resultados no Histórico. "Retomar" aparece somente quando
+   o Hashcat tiver gravado um checkpoint válido. Interromper antes do
+   primeiro checkpoint exige iniciar um novo teste. Mantenha os arquivos
+   de entrada e a mesma versão/pasta do Hashcat para retomar.
+
+Os dados são locais, na pasta do aplicativo dentro de %APPDATA% (use "Abrir pasta de
+dados" para localizar exatamente). Resultados podem conter senhas em
+texto simples. O relatório JSON exportado não inclui senhas nem logs.
+
+LIMITES DA ESTIMATIVA
+O tempo médio supõe uma senha aleatória escolhida uniformemente dentro
+do cenário. Uma senha feita de palavras ou padrões pode cair muito antes.
+O benchmark mede este hardware em condições específicas; não mede todo
+possível atacante. O programa não avalia falhas do roteador, WPS, firmware
+ou WPA3-SAE e não conecta repetidamente à sua rede para tentar senhas.
+
+Este pacote não possui assinatura de editor. Em computadores gerenciados,
+a política de execução pode exigir validação pelo administrador. Não
+desative proteções do Windows para contornar a política do dispositivo.
+
+VALIDAÇÃO
+Veja README.md e VALIDATION.md ao lado do EXE para os testes
+executados e os limites de validação da versão entregue.

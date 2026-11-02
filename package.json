@@ -1,0 +1,37 @@
+{
+  "name": "hs-studio",
+  "productName": "HS Studio",
+  "version": "1.0.0",
+  "description": "Interface Windows para auditoria offline WPA com Hashcat",
+  "author": "HS Studio contributors",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "desktop": "npm run build && electron .",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --test --test-isolation=none tests/*.test.cjs",
+    "test:engine": "node scripts/verify-engine.cjs",
+    "test:ui": "node scripts/verify-ui.mjs",
+    "package:win": "npm run build && node scripts/package-win.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "1.66.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "archiver": "8.0.0",
+    "electron": "45.2.1",
+    "playwright": "1.64.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  }
+}
