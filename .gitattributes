@@ -1,0 +1,2 @@
+# Preserve CMD line endings in raw downloads and accept their CRLF terminators.
+*.cmd -text whitespace=cr-at-eol
