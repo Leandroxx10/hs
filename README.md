@@ -8,6 +8,12 @@ Extraia `release/HS-Studio-1.0.0-Windows-x64.zip` e abra **HS Studio.exe**. Leia
 
 As estimativas funcionam imediatamente. Para benchmark e recuperação, extraia a [distribuição oficial do Hashcat](https://hashcat.net/hashcat/), instale os drivers de GPU e selecione `hashcat.exe` em Configurações. O motor e seus drivers são dependências externas e não estão incluídos no ZIP.
 
+### Instalar pelo CMD
+
+O arquivo `INSTALAR-WINDOWS.cmd` baixa o Node.js 24.19.0 portátil e o código da revisão `0ff9a8abbf490962837b8f5a3abba43fa09b3404`, verifica os checksums SHA-256, instala as dependências do lockfile e compila a interface. Tudo fica em `%LOCALAPPDATA%\HSStudio`. Não exige Node.js global, Git ou privilégios de administrador. O Electron é baixado pelo instalador oficial do pacote npm. É necessário acesso à Internet e espaço para os downloads e a instalação.
+
+Depois, use `%LOCALAPPDATA%\HSStudio\ABRIR-HS-STUDIO.cmd` para abrir novamente. O download do código publicado e o checksum oficial do Node foram verificados neste ambiente; a execução deste instalador no Windows ainda precisa ser validada no notebook.
+
 ## Funções
 
 - Consulta real às redes Wi-Fi visíveis no notebook Windows: SSID, autenticação, criptografia, BSSIDs, sinal e canais. A consulta usa `netsh wlan show networks mode=bssid`, não tenta autenticação e não gera um arquivo de hashes. Em versões recentes do Windows, o sistema pode exigir permissão de localização para mostrar BSSIDs; a saída original é acessível na interface.
